@@ -248,13 +248,14 @@ const useShortcutRecorder = ({
   useEffect(() => {
     const handleKeyDownWrapper = (e: KeyboardEvent) => isRecording && handleKeyDown(e);
     const handleKeyUpWrapper = (e: KeyboardEvent) => isRecording && handleKeyUp(e);
+    const listenerOptions: AddEventListenerOptions = { capture: true };
 
-    document.addEventListener('keydown', handleKeyDownWrapper);
-    document.addEventListener('keyup', handleKeyUpWrapper);
+    document.addEventListener('keydown', handleKeyDownWrapper, listenerOptions);
+    document.addEventListener('keyup', handleKeyUpWrapper, listenerOptions);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDownWrapper);
-      document.removeEventListener('keyup', handleKeyUpWrapper);
+      document.removeEventListener('keydown', handleKeyDownWrapper, listenerOptions);
+      document.removeEventListener('keyup', handleKeyUpWrapper, listenerOptions);
     };
   }, [isRecording, activeModKeys, activeNonModKey, error]);
 
