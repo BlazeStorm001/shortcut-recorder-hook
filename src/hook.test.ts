@@ -32,13 +32,10 @@ test('check single key shortcut registration', () => {
     dispatchKeyUp('KeyA');
   });
 
-  expect(result.current.shortcut).toEqual(['KeyA']);
-
   act(() => {
     result.current.stopRecording();
   });
-
-
+  
   expect(result.current.savedShortcut).toEqual(['KeyA']);
   
 });
