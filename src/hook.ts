@@ -155,6 +155,10 @@ const useShortcutRecorder = ({
           onChange(shortcut);
           setSavedShortcut(shortcut);
           stopRecording();
+          return "";
+        } else {
+          resetRecording();
+          return "";
         }
         return "";
       }
@@ -205,11 +209,6 @@ const useShortcutRecorder = ({
 
   // Update shortcut from active keys
   const updateShortcutFromActiveKeys = (modKeys: Set<string>, nonModKey: string): void => {
-    if (modKeys.size === 0 && !nonModKey) {
-      resetRecording();
-      return;
-    }
-
     setShortcut(() => {
       return getOrderedKeys(nonModKey, modKeys);
     });
