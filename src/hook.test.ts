@@ -12,7 +12,39 @@ const dispatchKeyUp = (code: string) => {
   document.dispatchEvent(new KeyboardEvent('keyup', { code }));
 };
 
-test('check shortcut registration', () => {
+test('check single key shortcut registration', () => {
+  const { result } = renderHook(() => useShortcutRecorder({
+  }));
+
+  act(() => {
+    result.current.startRecording();
+  });
+
+  // try various key combinations
+  act(() => {
+    dispatchKeyDown('KeyA');
+  });
+
+  expect(result.current.shortcut).toEqual(['KeyA']);
+
+ 
+  act(() => {
+    dispatchKeyUp('KeyA');
+  });
+
+  expect(result.current.shortcut).toEqual(['KeyA']);
+
+  act(() => {
+    result.current.stopRecording();
+  });
+
+
+  expect(result.current.savedShortcut).toEqual(['KeyA']);
+  
+});
+
+
+test('check multiple key combo shortcut registration', () => {
   const { result } = renderHook(() => useShortcutRecorder({
   }));
 
