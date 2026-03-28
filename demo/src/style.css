@@ -1,0 +1,49 @@
+/* styles.css */
+
+.shortcut-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: sans-serif;
+}
+
+.shortcut-input {
+    color: black;
+    width: 300px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+    border: 5px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+strong {
+    color: #333;
+}
